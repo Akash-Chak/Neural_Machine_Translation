@@ -2,8 +2,8 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import TextAreaField, SubmitField
+from wtforms.validators import DataRequired,length
 
 
 app = Flask(__name__)
@@ -12,13 +12,8 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
-
-class NameForm(FlaskForm):
-    name = StringField('What is your name?', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
 class modelForm(FlaskForm):
-    name = StringField('Enter Hindi Text', validators=[DataRequired()])
+    name = TextAreaField('Enter Hindi Text', validators=[DataRequired(),length(max=200)])
     submit = SubmitField('Submit')
 
 
@@ -34,22 +29,16 @@ def internal_server_error(e):
     return render_template('500.html'), 500
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/',methods=['GET','POST'])
 def index():
-    name = None
-    form = NameForm()
-    if form.validate_on_submit():
-        name = form.name.data
-        form.name.data = ''
-    return render_template('index.html', form=form, name=name)
+    return render_template('index.html')
 
 from model import translation_task
 @app.route('/translation',methods=['GET', 'POST'])
 def translation():
-    text = None
+    text = ''
     form = modelForm()
     if form.validate_on_submit():
         text = form.name.data
         text = translation_task(text)
-        form.name.data = ''
     return render_template('form.html',form=form,name=text)
