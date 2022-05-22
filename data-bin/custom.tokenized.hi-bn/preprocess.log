@@ -1,0 +1,14 @@
+Namespace(align_suffix=None, alignfile=None, all_gather_list_size=16384, bf16=False, bpe=None, checkpoint_shard_count=1, checkpoint_suffix='', cpu=False, criterion='cross_entropy', dataset_impl='mmap', destdir='data-bin/custom.tokenized.hi-bn', empty_cache_freq=0, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, joined_dictionary=False, log_format=None, log_interval=100, lr_scheduler='fixed', memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, model_parallel_size=1, no_progress_bar=False, nwordssrc=-1, nwordstgt=-1, only_source=False, optimizer=None, padding_factor=8, profile=False, quantization_config_path=None, scoring='bleu', seed=1, source_lang='hi', srcdict=None, target_lang='bn', task='translation', tensorboard_logdir=None, testpref='custom.tokenized.hi-bn/test', tgtdict=None, threshold_loss_scale=None, thresholdsrc=0, thresholdtgt=0, tokenizer=None, tpu=False, trainpref='custom.tokenized.hi-bn/train', user_dir=None, validpref='custom.tokenized.hi-bn/valid', workers=1)
+[hi] Dictionary: 6192 types
+[hi] custom.tokenized.hi-bn/train.hi: 1681235 sents, 36163045 tokens, 0.0% replaced by <unk>
+[hi] Dictionary: 6192 types
+[hi] custom.tokenized.hi-bn/valid.hi: 79742 sents, 1709680 tokens, 0.00252% replaced by <unk>
+[hi] Dictionary: 6192 types
+[hi] custom.tokenized.hi-bn/test.hi: 76419 sents, 1647614 tokens, 0.0037% replaced by <unk>
+[bn] Dictionary: 6736 types
+[bn] custom.tokenized.hi-bn/train.bn: 1681235 sents, 36940649 tokens, 0.0% replaced by <unk>
+[bn] Dictionary: 6736 types
+[bn] custom.tokenized.hi-bn/valid.bn: 79742 sents, 1748354 tokens, 0.0016% replaced by <unk>
+[bn] Dictionary: 6736 types
+[bn] custom.tokenized.hi-bn/test.bn: 76419 sents, 1684045 tokens, 0.00291% replaced by <unk>
+Wrote preprocessed data to data-bin/custom.tokenized.hi-bn
