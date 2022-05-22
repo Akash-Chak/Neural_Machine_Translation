@@ -43,11 +43,13 @@ def index():
         form.name.data = ''
     return render_template('index.html', form=form, name=name)
 
+from model import translation_task
 @app.route('/translation',methods=['GET', 'POST'])
 def translation():
     text = None
     form = modelForm()
     if form.validate_on_submit():
         text = form.name.data
+        text = translation_task(text)
         form.name.data = ''
     return render_template('form.html',form=form,name=text)
